@@ -1,7 +1,7 @@
 {
-  "name": "leaflet-labeled-circle",
+  "name": "leaflet-text-circle",
   "version": "1.0.2",
-  "description": "Special type of SVG marker with a label inside and draggable around the anchor point",
+  "description": "SVG circle marker with a label inside",
   "main": "index.js",
   "scripts": {
     "test": "browserify ./test/*.test.js | tap-closer | smokestack | tap-status",
@@ -16,21 +16,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w8r/leaflet-labeled-circle.git"
+    "url": "git+https://github.com/flacoman91/leaflet-text-circle.git"
   },
   "keywords": [
     "leaflet",
     "label",
     "circlemarker",
-    "svg",
-    "draggable"
+    "svg"
   ],
   "author": "Alexander Milevski <info@w8r.name>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/w8r/leaflet-labeled-circle/issues"
+    "url": "https://github.com/flacoman91/leaflet-text-circle/issues"
   },
-  "homepage": "https://github.com/w8r/leaflet-labeled-circle#readme",
+  "homepage": "https://github.com/flacoman91/leaflet-text-circle#readme",
   "browserify": {
     "transform": [
       "browserify-shim",

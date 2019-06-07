@@ -1,19 +1,19 @@
 const L = require('leaflet');
 const Circle = require('./circle');
 
-const LabeledMarker = L.FeatureGroup.extend({
+const CircleTextMarker = L.FeatureGroup.extend({
 
   options: {
 
     /**
-     * @param  {LabeledMarker} marker
+     * @param  {CircleTextMarker} marker
      * @param  {Object}        feature
      * @return {String}
      */
     getLabelText: (marker, feature) => feature.properties.text,
 
     /**
-     * @param  {LabeledMarker} marker
+     * @param  {CircleTextMarker} marker
      * @param  {Object}        feature
      * @param  {L.LatLng}      latlng
      * @return {L.LatLng}
@@ -35,7 +35,7 @@ const LabeledMarker = L.FeatureGroup.extend({
 
 
   /**
-   * @class LabeledMarker
+   * @class CircleTextMarker
    * @constructor
    * @extends {L.FeatureGroup}
    *
@@ -92,7 +92,7 @@ const LabeledMarker = L.FeatureGroup.extend({
 
   /**
    * @param {String} text
-   * @return {LabeledMarker}
+   * @return {CircleTextMarker}
    */
   setText(text) {
     this._marker.setText(text);
@@ -112,16 +112,16 @@ const LabeledMarker = L.FeatureGroup.extend({
       L.Util.extend({
         interactive: this.options.interactive
       },
-        LabeledMarker.prototype.options.markerOptions,
+        CircleTextMarker.prototype.options.markerOptions,
         opts.markerOptions)
     );
   },
 
 });
 
-L.TextCircleMarker = LabeledMarker;
+L.TextCircleMarker = CircleTextMarker;
 L.textCircleMarker = (latlng, feature, options) => {
-  return new LabeledMarker(latlng, feature, options);
+  return new CircleTextMarker(latlng, feature, options);
 };
 
-module.exports = LabeledMarker;
+module.exports = CircleTextMarker;
