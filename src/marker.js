@@ -119,45 +119,8 @@ const LabeledMarker = L.FeatureGroup.extend({
 
 });
 
-
-/**
- * @param  {Object} feature
- * @param  {String=} key
- * @return {Object}
- */
-function toGeometryCollection(feature, key) {
-  key = key || 'labelPosition';
-  let labelPos  = feature.properties[key];
-
-  if (!labelPos) throw new Error('No label position set');
-
-  labelPos = labelPos.slice();
-  const geometries = [
-    {
-      type: 'Point',
-      coordinates: labelPos.slice()
-    }, {
-      type: 'Point',
-      coordinates: labelPos.slice()
-    }];
-
-  return {
-    type: 'Feature',
-    properties: L.Util.extend({}, feature.properties, {
-      geometriesTypes: ['connection', 'label', 'textbox']
-    }),
-    bbox: feature.bbox,
-    geometry: {
-      type: 'GeometryCollection',
-      geometries: geometries
-    }
-  };
-}
-
-LabeledMarker.toGeometryCollection = toGeometryCollection;
-
-L.LabeledCircleMarker = LabeledMarker;
-L.labeledCircleMarker = (latlng, feature, options) => {
+L.TextCircleMarker = LabeledMarker;
+L.textCircleMarker = (latlng, feature, options) => {
   return new LabeledMarker(latlng, feature, options);
 };
 

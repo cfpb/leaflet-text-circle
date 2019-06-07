@@ -10,8 +10,8 @@
     "start": "npm run watch & npm run server",
     "watch": "watchify -d demo/js/index.js -o demo/js/build.js -v",
     "server": "http-server -p 3002",
-    "build-js": "browserify -v -d --external leaflet ./index.js -o dist/L.LabeledCircle-src.js",
-    "compress": "uglifyjs ./dist/L.LabeledCircle-src.js -o ./dist/L.LabeledCircle.js -m --comments",
+    "build-js": "browserify -v -d --external leaflet ./index.js -o dist/L.TextCircle-src.js",
+    "compress": "uglifyjs ./dist/L.TextCircle-src.js -o ./dist/L.TextCircle.js -m --comments",
     "build": "npm run lint && npm run build-js && npm test && npm run compress"
   },
   "repository": {
